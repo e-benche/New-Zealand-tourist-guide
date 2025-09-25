@@ -1,10 +1,14 @@
 
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
+<!--Sier at innholdet på siden er engelsk sånn at søkemotorer kan skjønne språket på siden-->
 <head>
     <meta charset="UTF-8">
+<!--Gjør at nettsiden bruker UTF-8 tegnsett. Dette er for at tegn skal vises riktig-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Gjør at nettsiden er responsiv og tilpasser seg til skjermstørrelsen på enheten som blir brukt-->
     <title>Explore New Zealand – Your tourist guide</title>
+<!--CSS styling her-->
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -28,6 +32,8 @@
             background: #0077b6;
             padding: 10px 0;
             text-align: center;
+            display: flex;
+            justify-content: space-between;
         }
         nav a {
             color: #fff;
@@ -63,8 +69,8 @@
             width: 220px;
             height: 140px;
             object-fit: cover;
-            border-radius: 6px;
-            box-shadow: 0 1px 4px #0002;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px #0002;
         }
         footer {
             background: #0077b6;
@@ -79,6 +85,7 @@
     <header>
         <h1>Tourist guide for New Zealand</h1>
     </header>
+<!--linker til steder på nettsiden-->
     <nav>
         <a href="#Information about New Zealand">Information about New Zealand</a>
         <a href="#attractions">Attractions</a>
@@ -92,6 +99,7 @@
             <h2>Information about New Zealand</h2>
             <p>New Zealand, known for its stunning landscapes and vibrant culture, is a must-visit destination. From the majestic fjords of Milford Sound to the geothermal wonders of Rotorua, there's something for every traveler. The country offers a mix of outdoor adventures, rich Maori heritage, and modern cities like Auckland and Wellington.</p>
         <section id="attractions">
+<!--liste-->
             <h2>Popular attractions</h2>
             <ul>
                 <li><strong>Milford Sound:</strong> Experience spectacular canals and waterfalls.</li>
@@ -119,12 +127,14 @@
         <section id="gallery">
             <h2>Gallery</h2>
             <div class="gallery">
+<!--linker til bilder-->
                 <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Milford Sound">
                 <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80" alt="Rotorua">
                 <img src="https://images.unsplash.com/photo-1465156799763-2c087c332922?auto=format&fit=crop&w=400&q=80" alt="Mount Cook">
             </div>
         </section>
         <section id="Video">
+<!--her skal videoen min være-->
             <h2>Video</h2>
             <video width="100%" controls>
                 <source src="" type="video/mp4">
@@ -136,4 +146,3 @@
     </footer>
 </body>
 </html>
-
