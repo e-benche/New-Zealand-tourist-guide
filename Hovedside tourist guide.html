@@ -2,17 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--Sier at innholdet på siden er engelsk sånn at søkemotorer kan skjønne språket på siden-->
+
 <head>
     <meta charset="UTF-8">
 <!--Gjør at nettsiden bruker UTF-8 tegnsett. Dette er for at tegn skal vises riktig-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--Gjør at nettsiden er responsiv og tilpasser seg til skjermstørrelsen på enheten som blir brukt-->
+
     <title>Your tourist guide for New Zealand</title>
 <!--CSS styling her-->
+
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
+        
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
@@ -23,6 +24,7 @@
 /*Setter bakgrunnsfargen til en lys blåfarge*/
 /*Setter tekstfargen til en mørk grå for bedre lesbarhet*/
         }
+        
         header {
             background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
             color: #fff;
@@ -35,6 +37,7 @@
 /*Sentrerer teksten horisontalt*/
 /*Setter posisjonen til relativ for å kunne bruke z-index senere hvis nødvendig*/
         }
+        
         header h1 {
             font-size: 3em;
             margin: 0;
@@ -43,6 +46,7 @@
 /*Fjerner standard margin rundt overskriften*/
 /*Legger til en skyggeeffekt på teksten for bedre lesbarhet mot bakgrunnsbildet*/
         }
+        
         nav {
             background: #0077b6;
             padding: 10px 0;
@@ -59,6 +63,7 @@
 /*Gjør navigasjonsfeltet sticky slik at det forblir synlig*/
 /*Setter z-index for å sikre at navigasjonsfeltet ligger over annet innhold ved scrolling*/
         }
+        
         nav a {
             color: #fff;
             text-decoration: none;
@@ -69,12 +74,14 @@
 /*Fjerner understreking fra lenkene*/
 /*Legger til horisontal margin for å gi plass mellom lenkene*/
         }
+        
         nav a:hover {
             text-decoration: underline;
             color: #000000;
 /*Legger til understreking ved hover for visuell tilbakemelding*/
 /*Endrer tekstfargen til svart ved hover for bedre synlighet*/
         }
+        
         main {
             max-width: 900px;
             margin: 40px auto;
@@ -86,32 +93,45 @@
 /*Sentrerer hovedinnholdet horisontalt med automatisk margin*/
 /*Legger til avrundede hjørner for et mykere utseende*/
         }
+        
         section {
             margin-bottom: 40px;
 /* Sikrer at sidens ankere ruller til et punkt under den sticky navbaren */
             scroll-margin-top: 55px;
 /*Legger til margin nederst for å skille seksjonene visuelt*/
         }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
         h2 {
             color: #0077b6;
             margin-top: 0;
-/*Setter overskriftsfargen til den samme blåfargen som i navigasjonsfeltet for konsistens*/
         }
+/*Setter overskriftsfargen til den samme blåfargen som i navigasjonsfeltet for konsistens*/
+        
         .gallery {
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
-/*Bruker flexbox for å arrangere bildene i galleriet*/
         }
+/*Bruker flexbox for å arrangere bildene i galleriet*/
+        main ul li {
+            margin-bottom: 12px;
+        }
+/* Gi litt luft mellom listeelementer i alle lister i hovedinnholdet */
+        
         .gallery img {
             width: 220px;
             height: 140px;
             object-fit: cover;
             border-radius: 8px;
             box-shadow: 0 2px 6px #0002;
+        }
 /*Setter faste dimensjoner for bildene i galleriet*/
 /*Bruker object-fit for å sikre at bildene dekker området uten å bli forvrengt*/
-        }
+        
         footer {
             background: #0077b6;
             color: #fff;
@@ -119,7 +139,9 @@
             padding: 18px 0;
             margin-top: 40px;
         }
+        
     </style>
+
 <link rel="icon" href="https://media.posterlounge.com/img/products/640000/639569/639569_poster.jpg" type="image/x-icon">
 <!--Bildet som vises på fanen-->
 </head>
@@ -127,38 +149,33 @@
     <header>
         <h1>Tourist guide for New Zealand</h1>
     </header>
-    <nav>
-        <a href="#Information about New Zealand">Information about New Zealand</a>
+    <nav role="navigation" aria-label="Main navigation">
+        <a href="#information-about-new-zealand">Information about New Zealand</a>
         <a href="#attractions">Attractions</a>
         <a href="#activities">Activities</a>
         <a href="#tips">Local Tips</a>
         <a href="#gallery">Gallery</a>
-        <a href="#Video">Video</a>
-<!--linker til steder på nettsiden-->
+        <a href="#video">Video</a>
     </nav>
     <main>
-        <section id="Information about New Zealand">
+        <section id="information-about-new-zealand">
             <h2>Information about New Zealand</h2>
             <p>New Zealand, also known as Aotearoa, is a land of breathtaking beauty and adventure. The country is made up of two main islands, each with its own unique landscapes and attractions. From snow-capped mountains and lush rainforests to golden beaches and rolling farmlands, New Zealand is a paradise for nature lovers and thrill-seekers alike. The culture is a rich blend of Māori and European influences, and the people, known as Kiwis, are famous for their friendliness and hospitality.</p>
+        </section>
         <section id="attractions">
 <!--liste-->
             <h2>Popular attractions</h2>
             <ul>
                 <li><strong>Milford Sound:</strong> Experience spectacular fjords, towering cliffs, and cascading waterfalls. Milford Sound is often called the "eighth wonder of the world" and is best explored by boat or kayak. Keep an eye out for dolphins, seals, and penguins that inhabit these pristine waters.</li>
-<br>
                 <li><strong>Rotorua:</strong> See geothermal wonders and immerse yourself in Māori culture. Rotorua is famous for its bubbling mud pools, geysers, and natural hot springs. Visitors can also enjoy traditional Māori performances and sample food cooked in a hāngi, an earth oven.</li>
-<br>
                 <li><strong>Mount Cook:</strong> Enjoy the view over New Zealand's tallest mountain, Aoraki/Mount Cook. The surrounding national park offers excellent hiking trails, stargazing opportunities, and the chance to see glaciers up close. It's a must-visit for outdoor enthusiasts and photographers.</li>
             </ul>
         </section>
         <section id="activities">
             <h2>Exciting activities</h2>
             <ul>
-<!--<br> lager mellomrom mellom setninger-->
                 <li><strong>Hiking in the National Park:</strong> New Zealand is famous for its Great Walks, such as the Milford Track and Tongariro Alpine Crossing. These well-maintained trails take you through some of the country's most stunning scenery, from alpine peaks to ancient forests. Hiking is a fantastic way to experience the natural beauty and tranquility of New Zealand.</li>
-<br>
                 <li><strong>Visit lakes:</strong> The country is dotted with beautiful lakes, including Lake Taupo and Lake Tekapo. These lakes are perfect for swimming, kayaking, fishing, or simply relaxing by the shore. Lake Tekapo is also known for its clear night skies, making it a top spot for stargazing.</li>
-<br>
                 <li><strong>Taste local favorites:</strong> New Zealand's cuisine is a delicious mix of fresh seafood, tender lamb, and seasonal produce. Don't miss trying green-lipped mussels, crayfish, and the famous pavlova dessert. The country is also renowned for its world-class wines, especially Sauvignon Blanc and Pinot Noir.</li>
             </ul>
         </section>
@@ -167,13 +184,11 @@
             <p>Get the most out of your visit by following our insider tips:</p>
             <ul>
                 <li><strong>Best time to visit:</strong> November to April is the warmest and sunniest period, ideal for outdoor activities and exploring the beaches. However, each season has its own charm—winter is perfect for skiing, while spring and autumn offer mild weather and fewer crowds.</li>
-<br>
                 <li><strong>Hidden gems:</strong> Discover places like Wanaka, a tranquil lakeside town surrounded by mountains, and Abel Tasman National Park, famous for its golden beaches and coastal hiking trails. These spots are less crowded but just as beautiful as the more famous destinations.</li>
-<br>
-                <li><strong>Transport:</strong> Renting a car or campervan gives you the freedom to explore at your own pace and reach remote areas. New Zealand's roads are well-maintained and scenic, making road trips a popular choice. For those who prefer not to drive, guided tours and public transport are also available. For more information or to book a trip, visit <a href="https://www.gadventures.com/trips/journeys-discover-new-zealand/ONENG/?utm_source=google&utm_medium=cpc&utm_campaign=eu-eurfi-2506-1111-cv&utm_platformcampaign=EUR-EN-GADS-SEARCH-FI-NEW_ZEALAND&utm_mktcampaign=GA-Europe-Fixed-Inventory-2506-1111-CV&utm_id=1746117243&utm_term={}&utm_searchtype=sem-destinations&utm_content=sem-dsa&utm_adgroupid={122070623013}&utm_network={g}&utm_matchtype=&gclsrc=aw.ds&gad_source=1&gad_campaignid=1746117243&gclid=Cj0KCQjw58PGBhCkARIsADbDilyBXEif_mC5wopdjt3sGtMxwyQEisS0yBKQHKK2uOSNYLFU7yrXvzsaAtaBEALw_wcB" target="_blank" rel="noopener">G Adventures</a>.</li>
+                <li><strong>Transport:</strong> Renting a car or campervan gives you the freedom to explore at your own pace and reach remote areas. New Zealand's roads are well-maintained and scenic, making road trips a popular choice. For those who prefer not to drive, guided tours and public transport are also available. For more information or to book a trip, visit <a href="https://www.gadventures.com/trips/journeys-discover-new-zealand/ONENG/?utm_source=google&utm_medium=cpc&utm_campaign=eu-eurfi-2506-1111-cv&utm_platformcampaign=EUR-EN-GADS-SEARCH-FI-NEW_ZEALAND&utm_mktcampaign=GA-Europe-Fixed-Inventory-2506-1111-CV&utm_id=1746117243&utm_term={}&utm_searchtype=sem-destinations&utm_content=sem-dsa&utm_adgroupid={122070623013}&utm_network={g}&utm_matchtype=&gclsrc=aw.ds&gad_source=1&gad_campaignid=1746117243&gclid=Cj0KCQjw58PGBhCkARIsADbDilyBXEif_mC5wopdjt3sGtMxwyQEisS0yBKQHKK2uOSNYLFU7yrXvzsaAtaBEALw_wcB" target="_blank" rel="noopener noreferrer">G Adventures</a>.</li>
             </ul>
         </section>
-        <section id="gallery">
+    <section id="gallery">
             <h2>Gallery</h2>
             <div class="gallery">
 <!--linker til bilder-->
@@ -182,7 +197,7 @@
                 <img src="https://images.unsplash.com/photo-1465156799763-2c087c332922?auto=format&fit=crop&w=400&q=80" alt="Mount Cook">
             </div>
         </section>
-        <section id="Video">
+    <section id="video">
 <!--her skal videoen min være-->
             <h2>Video</h2>
             <video width="100%" controls>
@@ -206,3 +221,4 @@
         &copy; 2025 Explore New Zealand | Your Tourist Guide
     </footer>
 </body>
+</html>
