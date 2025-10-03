@@ -10,6 +10,9 @@
     <title>Your tourist guide for New Zealand</title>
 <!--CSS styling her-->
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
@@ -85,6 +88,8 @@
         }
         section {
             margin-bottom: 40px;
+/* Sikrer at sidens ankere ruller til et punkt under den sticky navbaren */
+            scroll-margin-top: 55px;
 /*Legger til margin nederst for å skille seksjonene visuelt*/
         }
         h2 {
