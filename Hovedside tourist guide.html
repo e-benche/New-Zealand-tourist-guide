@@ -81,18 +81,22 @@
             padding: 30px;
 /*Setter maksimal bredde for hovedinnholdet for bedre lesbarhet*/
 /*Sentrerer hovedinnholdet horisontalt med automatisk margin*/
+/*Legger til avrundede hjørner for et mykere utseende*/
         }
         section {
             margin-bottom: 40px;
+/*Legger til margin nederst for å skille seksjonene visuelt*/
         }
         h2 {
             color: #0077b6;
             margin-top: 0;
+/*Setter overskriftsfargen til den samme blåfargen som i navigasjonsfeltet for konsistens*/
         }
         .gallery {
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
+/*Bruker flexbox for å arrangere bildene i galleriet*/
         }
         .gallery img {
             width: 220px;
@@ -100,6 +104,8 @@
             object-fit: cover;
             border-radius: 8px;
             box-shadow: 0 2px 6px #0002;
+/*Setter faste dimensjoner for bildene i galleriet*/
+/*Bruker object-fit for å sikre at bildene dekker området uten å bli forvrengt*/
         }
         footer {
             background: #0077b6;
@@ -110,12 +116,12 @@
         }
     </style>
 <link rel="icon" href="https://media.posterlounge.com/img/products/640000/639569/639569_poster.jpg" type="image/x-icon">
+<!--Bildet som vises på fanen-->
 </head>
 <body>
     <header>
         <h1>Tourist guide for New Zealand</h1>
     </header>
-<!--linker til steder på nettsiden-->
     <nav>
         <a href="#Information about New Zealand">Information about New Zealand</a>
         <a href="#attractions">Attractions</a>
@@ -123,6 +129,7 @@
         <a href="#tips">Local Tips</a>
         <a href="#gallery">Gallery</a>
         <a href="#Video">Video</a>
+<!--linker til steder på nettsiden-->
     </nav>
     <main>
         <section id="Information about New Zealand">
@@ -158,7 +165,7 @@
 <br>
                 <li><strong>Hidden gems:</strong> Discover places like Wanaka, a tranquil lakeside town surrounded by mountains, and Abel Tasman National Park, famous for its golden beaches and coastal hiking trails. These spots are less crowded but just as beautiful as the more famous destinations.</li>
 <br>
-                <li><strong>Transport:</strong> Renting a car or campervan gives you the freedom to explore at your own pace and reach remote areas. New Zealand's roads are well-maintained and scenic, making road trips a popular choice. For those who prefer not to drive, guided tours and public transport are also available. For more information or to book a trip, visit <a href="https://www.gadventures.com/trips/journeys-discover-new-zealand/ONENG/?utm_source=google&utm_medium=cpc&utm_campaign=eu-eurfi-2506-1111-cv&utm_platformcampaign=EUR-EN-GADS-SEARCH-FI-NEW_ZEALAND&utm_mktcampaign=GA-Europe-Fixed-Inventory-2506-1111-CV&utm_id=1746117243&utm_term={}&utm_searchtype=sem-destinations&utm_content=sem-dsa&utm_adgroupid={122070623013}&utm_network={g}&utm_matchtype=&gclsrc=aw.ds&gad_source=1&gad_campaignid=1746117243&gclid=Cj0KCQjw58PGBhCkARIsADbDilyBXEif_mC5wopdjt3sGtMxwyQEisS0yBKQHKK2uOSNYLFU7yrXvzsaAtaBEALw_wcB" target="_blank">G Adventures</a>.</li>
+                <li><strong>Transport:</strong> Renting a car or campervan gives you the freedom to explore at your own pace and reach remote areas. New Zealand's roads are well-maintained and scenic, making road trips a popular choice. For those who prefer not to drive, guided tours and public transport are also available. For more information or to book a trip, visit <a href="https://www.gadventures.com/trips/journeys-discover-new-zealand/ONENG/?utm_source=google&utm_medium=cpc&utm_campaign=eu-eurfi-2506-1111-cv&utm_platformcampaign=EUR-EN-GADS-SEARCH-FI-NEW_ZEALAND&utm_mktcampaign=GA-Europe-Fixed-Inventory-2506-1111-CV&utm_id=1746117243&utm_term={}&utm_searchtype=sem-destinations&utm_content=sem-dsa&utm_adgroupid={122070623013}&utm_network={g}&utm_matchtype=&gclsrc=aw.ds&gad_source=1&gad_campaignid=1746117243&gclid=Cj0KCQjw58PGBhCkARIsADbDilyBXEif_mC5wopdjt3sGtMxwyQEisS0yBKQHKK2uOSNYLFU7yrXvzsaAtaBEALw_wcB" target="_blank" rel="noopener">G Adventures</a>.</li>
             </ul>
         </section>
         <section id="gallery">
@@ -186,6 +193,8 @@
                 <li><strong>Maori Culture</strong>. <i>100% Pure New Zealand</i>. <a href="https://www.newzealand.com/int/maori-culture/" target="_blank" rel="noopener">Maori Culture</a></li>
                 <li><strong>Statistics New Zealand</strong> (2025). <i>Key facts about New Zealand</i>. <a href="https://www.stats.govt.nz/" target="_blank" rel="noopener">Key Facts About New Zealand</a></li>
             </ul>
+<!--kildeliste-->
+<!--rel="noopener" gir ekstra sikkerhet ved å hindre "Reverse tabnapping"(råd fra copilot)-->
         </section>
     </main>
     <footer>
