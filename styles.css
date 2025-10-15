@@ -1,96 +1,127 @@
-/* Styles moved out from Hovedside tourist guide.html */
-
+    
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    margin: 0;
-    background: #f4f8fb;
-    color: #222;
-}
-
-header {
-    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-    color: #fff;
-    padding: 80px 0 60px 0;
-    text-align: center;
-    position: relative;
-}
-
-header h1 {
-    font-size: 3em;
-    margin: 0;
-    text-shadow: 2px 2px 8px #0006;
-}
-
-nav {
-    background: #0077b6;
-    padding: 10px 0;
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 20px;
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
-nav a:hover {
-    text-decoration: underline;
-    color: #000000;
-}
-
-main {
-    max-width: 900px;
-    margin: 40px auto;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px #0001;
-    padding: 30px;
-}
-
-section {
-    margin-bottom: 40px;
-    /* Sikrer at sidens ankere ruller til et punkt under den sticky navbaren */
-    scroll-margin-top: 55px;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-h2 {
-    color: #0077b6;
-    margin-top: 0;
-}
-
-.gallery {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-main ul li {
-    margin-bottom: 12px;
-}
-
-.gallery img {
-    width: 220px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px #0002;
-}
-
-footer {
-    background: #0077b6;
-    color: #fff;
-    text-align: center;
-    padding: 18px 0;
-    margin-top: 40px;
-}
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: #f4f8fb;
+            color: #222;
+/*Endrer fonten til Segoe UI, hvis den ikke er tilgjengelig, blir det til Arial, og hvis ikke den går heller, brukes sand-serif*/
+/*Legger til margin 0 for å fjerne standard margin rundt body*/
+/*Setter bakgrunnsfargen til en lys blåfarge*/
+/*Setter tekstfargen til en mørk grå for bedre lesbarhet*/
+    }
+        
+        header {
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: #fff;
+            padding: 80px 0 60px 0;
+            text-align: center;
+            position: relative;
+/*Setter bakgrunnsbildet med sentrering, dekning og ingen gjentakelse*/
+/*Setter tekstfargen til hvit for kontrast mot bakgrunnsbildet*/
+/*Legger til padding for å gi plass rundt teksten*/
+/*Sentrerer teksten horisontalt*/
+/*Setter posisjonen til relativ for å kunne bruke z-index senere hvis nødvendig*/
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 8px #0006;
+/*Setter fontstørrelsen til 3em for å gjøre overskriften stor og synlig*/
+/*Fjerner standard margin rundt overskriften*/
+/*Legger til en skyggeeffekt på teksten for bedre lesbarhet mot bakgrunnsbildet*/
+        }
+        
+        nav {
+            background: #0077b6;
+            padding: 10px 0;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+/*Setter bakgrunnsfargen til en mørk blåfarge*/
+/*Legger til padding for å gi plass rundt navigasjonslenkene*/
+/*Sentrerer navigasjonslenkene horisontalt*/
+/*Bruker flexbox for å arrangere lenkene jevnt fordelt*/
+/*Gjør navigasjonsfeltet sticky slik at det forblir synlig på toppen av siden*/
+/*Setter z-index for å sikre at navigasjonsfeltet ligger over annet innhold ved scrolling*/
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+/*Setter tekstfargen til hvit for kontrast mot den blå bakgrunnen*/
+/*Fjerner understreking fra lenkene*/
+/*Legger til horisontal margin for å gi plass mellom lenkene*/
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+            color: #000000;
+/*Legger til understreking ved hover for visuell tilbakemelding*/
+/*Endrer tekstfargen til svart ved hover for bedre synlighet*/
+        }
+        
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #0001;
+            padding: 30px;
+/*Setter maksimal bredde for hovedinnholdet for bedre lesbarhet*/
+/*Sentrerer hovedinnholdet horisontalt med automatisk margin*/
+/*Legger til avrundede hjørner for et mykere utseende*/
+        }
+        
+        section {
+            margin-bottom: 40px;
+            scroll-margin-top: 55px;
+/* Sikrer at sidens ankere ruller til et punkt under den sticky navbaren */
+/*Legger til margin nederst for å skille seksjonene visuelt*/
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        h2 {
+            color: #0077b6;
+            margin-top: 0;
+        }
+/*Setter overskriftsfargen til den samme blåfargen som i navigasjonsfeltet for konsistens*/
+        
+        .gallery {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+/*Bruker flexbox for å arrangere bildene i galleriet*/
+        main ul li {
+            margin-bottom: 12px;
+        }
+/* Gi litt luft mellom listeelementer i alle lister i hovedinnholdet */
+        
+        .gallery img {
+            width: 220px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px #0002;
+        }
+/*Setter faste dimensjoner for bildene i galleriet*/
+/*Bruker object-fit for å sikre at bildene dekker området uten å bli forvrengt*/
+        
+        footer {
+            background: #0077b6;
+            color: #fff;
+            text-align: center;
+            padding: 18px 0;
+            margin-top: 40px;
+        }
+        
