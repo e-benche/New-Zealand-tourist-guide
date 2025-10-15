@@ -52,7 +52,7 @@ body {
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 20px;
+            margin: 0 25px;
             font-weight: bold;
             font-size: 1.1em;
 /*Setter tekstfargen til hvit for kontrast mot den blå bakgrunnen*/
@@ -117,6 +117,18 @@ body {
 /*Setter faste dimensjoner for bildene i galleriet*/
 /*Bruker object-fit for å sikre at bildene dekker området uten å bli forvrengt*/
         
+        #references a {
+            color: #0077b6; 
+        }
+
+        #references a:hover,
+        #references a:focus {
+            color: #684083; 
+            text-decoration: underline;
+        }
+/* Spesifikk styling for lenker i referanseseksjonen for å skille dem fra andre lenker */
+
+        
         footer {
             background: #0077b6;
             color: #fff;
@@ -124,4 +136,3 @@ body {
             padding: 18px 0;
             margin-top: 40px;
         }
-        
