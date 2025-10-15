@@ -1,0 +1,96 @@
+/* Styles moved out from Hovedside tourist guide.html */
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background: #f4f8fb;
+    color: #222;
+}
+
+header {
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    color: #fff;
+    padding: 80px 0 60px 0;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    font-size: 3em;
+    margin: 0;
+    text-shadow: 2px 2px 8px #0006;
+}
+
+nav {
+    background: #0077b6;
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #0001;
+    padding: 30px;
+}
+
+section {
+    margin-bottom: 40px;
+    /* Sikrer at sidens ankere ruller til et punkt under den sticky navbaren */
+    scroll-margin-top: 55px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h2 {
+    color: #0077b6;
+    margin-top: 0;
+}
+
+.gallery {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+main ul li {
+    margin-bottom: 12px;
+}
+
+.gallery img {
+    width: 220px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px #0002;
+}
+
+footer {
+    background: #0077b6;
+    color: #fff;
+    text-align: center;
+    padding: 18px 0;
+    margin-top: 40px;
+}
