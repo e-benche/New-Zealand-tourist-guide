@@ -113,6 +113,11 @@ body {
         }
 /*Bruker flexbox for å arrangere bildene i galleriet*/
 
+        .centered-gallery {
+            justify-content: center;
+            align-items: center;
+        }
+/*Sentrerer kun bildene i galleriet både horisontalt og vertikalt*/
         main ul li {
             margin-bottom: 12px;
         }
