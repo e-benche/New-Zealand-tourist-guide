@@ -1,4 +1,14 @@
     
+/* grunnstiler (mobil) */
+nav { display: block; }
+.gallery img { width: calc(50% - 8px); }
+
+/* større skjermer */
+@media (min-width: 900px) {
+  nav { display: flex; justify-content: space-around; }
+  .gallery img { width: 220px; height: 140px; }
+}
+
 body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
@@ -102,6 +112,7 @@ body {
             flex-wrap: wrap;
         }
 /*Bruker flexbox for å arrangere bildene i galleriet*/
+
         main ul li {
             margin-bottom: 12px;
         }
@@ -136,3 +147,5 @@ body {
             padding: 18px 0;
             margin-top: 40px;
         }
+
+
