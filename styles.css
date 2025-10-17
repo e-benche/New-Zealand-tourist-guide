@@ -1,12 +1,15 @@
     
-/* grunnstiler (mobil) */
 nav { display: block; }
+/*Gjør navigasjonsfeltet til en blokk for å ta opp full bredde av skjermen*/
 .gallery img { width: calc(50% - 8px); }
+/*Setter bildene i galleriet til å ta opp halvparten av bredden minus mellomrommet*/
 
-/* større skjermer */
 @media (min-width: 900px) {
+/*regler for skjermer som er minst 900px brede*/
   nav { display: flex; justify-content: space-around; }
+/*Bruker flexbox for å arrangere navigasjonslenkene jevnt fordelt*/
   .gallery img { width: 220px; height: 140px; }
+/*Setter faste størrelser for bildene i galleriet på større skjermer*/
 }
 
 body {
