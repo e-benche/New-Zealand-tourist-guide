@@ -75,7 +75,7 @@ body {
         
         nav a:hover {
             text-decoration: underline;
-            color: #000000;
+            color: #ff829d;
 /*Legger til understreking ved hover for visuell tilbakemelding*/
 /*Endrer tekstfargen til svart ved hover for bedre synlighet*/
         }
