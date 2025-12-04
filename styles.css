@@ -132,9 +132,19 @@ body {
             object-fit: cover;
             border-radius: 8px;
             box-shadow: 0 2px 6px #0002;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
 /*Setter faste dimensjoner for bildene i galleriet*/
 /*Bruker object-fit for å sikre at bildene dekker området uten å bli forvrengt*/
+/*Legger til transition for smooth animasjon på hover*/
+
+        .gallery img:hover {
+            transform: scale(1.1) translateY(-8px);
+            box-shadow: 0 8px 16px #0004;
+        }
+/*Zoom inn 10% og løft bildet opp når man hovrer over det*/
+/*Øker skyggen for å gi dybdeeffekt*/
         
         #references a {
             color: #0077b6; 
