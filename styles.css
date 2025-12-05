@@ -17,6 +17,32 @@ body {
             margin: 0;
             background: #f4f8fb;
             color: #222;
+:root{
+    --bg: #ffffff;
+    --text: #111827;
+    --accent: #1e90ff;
+    --muted: #6b7280;
+    --success: #16a34a;
+}
+
+body{
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Tema-klasser */
+.theme-dark{
+    --bg: #0b1220;
+    --text: #e6eef8;
+    --accent: #60a5fa;
+}
+.theme-light{
+    --bg: #ffffff;
+    --text: #111827;
+}
 /*Endrer fonten til Segoe UI, hvis den ikke er tilgjengelig, blir det til Arial, og hvis ikke den går heller, brukes sand-serif*/
 /*Legger til margin 0 for å fjerne standard margin rundt body*/
 /*Setter bakgrunnsfargen til en lys blåfarge*/
@@ -68,6 +94,11 @@ body {
             margin: 0 25px;
             font-weight: bold;
             font-size: 1.2em;
+/* Fokus for tilgjengelighet */
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 3px solid #ffbf47;
+    outline-offset: 2px;
+}
 /*Setter tekstfargen til hvit for kontrast mot den blå bakgrunnen*/
 /*Fjerner understreking fra lenkene*/
 /*Legger til horisontal margin for å gi plass mellom lenkene*/
@@ -113,6 +144,33 @@ body {
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
+        /* Enkle responsive regler */
+        .gallery{
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(160px,1fr));
+            gap: 0.5rem;
+        }
+
+        /* Seksjon for prosjekter */
+        .project {
+            padding: 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .project h3{ margin-top:0 }
+
+        .btn { background: var(--accent); color: white; border: none; padding: 0.5rem 0.8rem; border-radius: 4px; cursor: pointer }
+        .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent) }
+
+        .answer-btn.correct { background: #16a34a; color: #fff }
+        .answer-btn.wrong { background: #dc2626; color: #fff }
+
+        @media (max-width: 600px){
+            nav a{ display:block; margin:0.25rem 0 }
+            header h1 { font-size: 1.3rem }
+        }
         }
 /*Bruker flexbox for å arrangere bildene i galleriet*/
 
