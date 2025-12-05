@@ -1,5 +1,5 @@
 // scripts.js - ekstern JavaScript for nettstedet
-
+// Test script
 document.addEventListener('DOMContentLoaded', () => {
   console.log('scripts.js loaded');
 
