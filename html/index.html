@@ -34,6 +34,39 @@
             <h2>Information about New Zealand</h2>
             <p>New Zealand, also known as Aotearoa, is a land of breathtaking beauty and adventure. The country is made up of two main islands, each with its own unique landscapes and attractions. From snow-capped mountains and lush rainforests to golden beaches and rolling farmlands, New Zealand is a paradise for nature lovers and thrill-seekers alike. The culture is a rich blend of Māori and European influences, and the people, known as Kiwis, are famous for their friendliness and hospitality.</p>
         </section>
+        <!-- Prosjekt: Reiseplanlegger -->
+        <section id="travel-planner" class="project">
+            <h2>Reiseplanlegger (interaktiv)</h2>
+            <form id="plannerForm" aria-label="Reiseplanlegger">
+                <label for="destination">Destinasjon</label>
+                <input id="destination" name="destination" required aria-required="true">
+                <label for="days">Antall dager</label>
+                <input id="days" name="days" type="number" min="1" value="3">
+                <label for="budget">Budsjett (NOK)</label>
+                <input id="budget" name="budget" type="number" min="0" value="1000">
+                <button class="btn" type="submit">Lag plan</button>
+            </form>
+            <h3>Lagre planer</h3>
+            <ul id="plansList" aria-live="polite"></ul>
+        </section>
+
+        <!-- Prosjekt: Quiz-spill -->
+        <section id="quiz" class="project">
+            <h2>Quiz: Test dine NZ-kunnskaper</h2>
+            <div id="quizContainer">
+                <p id="question"></p>
+                <div id="answers" role="list"></div>
+                <p id="quizScore">Poeng: 0</p>
+                <button id="nextQuestion" class="btn secondary">Neste</button>
+            </div>
+        </section>
+
+        <!-- Prosjekt: Favoritter (vises fra Galleri eller her) -->
+        <section id="favorites" class="project">
+            <h2>Dine favoritter</h2>
+            <p>Legg til favoritter i Galleri-siden. Favoritter vises her.</p>
+            <ul id="favoritesList" aria-live="polite"></ul>
+        </section>
         <section id="attractions">
 <!--liste-->
             <h2>Popular attractions</h2>
@@ -75,6 +108,9 @@
                 </a>
             </div>
         </section>
+        <section id="gallery_button">
+            <a href="Galleri.html" class="btn" aria-label="Open full Gallery page">Visit Full Gallery</a>
+        </section>
     <section id="video">
 <!--her skal videoen min være-->
             <h2>Video</h2>
@@ -94,9 +130,18 @@
 <!--kildeliste-->
 <!--rel="noopener" gir ekstra sikkerhet ved å hindre "Reverse tabnapping"(råd fra copilot)-->
         </section>
-    </main>
-    <footer>
-        &copy; 2025 Explore New Zealand | Your Tourist Guide
-    </footer>
-</body>
-</html>
+        </main>
+        <section id="js-demo" aria-label="JavaScript demo">
+                <h2>Demo</h2>
+                <button id="demoBtn">Klikk meg</button>
+            </section>
+        <footer>
+            &copy; 2025 Explore New Zealand | Your Tourist Guide
+        </footer>
+        <button id="themeToggle" class="btn" aria-pressed="false">Mørk modus</button>
+        <script src="scripts/theme.js"></script>
+        <script src="scripts/favorites.js"></script>
+        <script src="scripts/travel-planner.js"></script>
+        <script src="scripts/quiz-game.js"></script>
+    </body>
+    </html>
