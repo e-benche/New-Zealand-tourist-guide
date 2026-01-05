@@ -1,0 +1,70 @@
+Smooth scroll - Navigar glatt mellom seksjoner
+Back-to-top knapp - Vises når du scroller ned
+Aktiv nav highlight - Marker hvilken seksjon du leser
+Tema toggle - Mørkt/lyst tema
+Leserstatistikk - Vis lesestid, ordtelling osv.
+Søkefunksjon - Søk i attraksjoner og aktiviteter
+Favoritter - Lagre favorittattraksjoner i localStorage
+Newsletter signup - Validert kontaktskjema
+Bildegalleri - Lightbox/modal for galleriet (som jeg lagde før)
+Lydikon - Les tekst høyt
+
+
+
+
+📋 Prosjekt 1: Interaktiv Reiseplanner (Med brukerinput)
+Bruker velger aktiviteter/attrasjoner og antall dager
+JavaScript beregner kostnad, distance, beste rute
+Lagrer i array og viser reiseplan
+Input fra bruker: Dropdowns, number input
+Krav: Variabler, løkker, funksjoner, arrays
+
+// Pseudokode
+let attractions = [
+  {name: "Milford Sound", days: 2, cost: 150},
+  {name: "Rotorua", days: 1, cost: 80}
+];
+
+function calculateTrip(selected) {
+  let total = 0;
+  selected.forEach(item => total += item.cost);
+  return total;
+}
+
+
+🎮 Prosjekt 2: Quiz-spill om New Zealand
+10 spørsmål med flervalgsvar
+Teller poeng og viser resultat
+Bruker kan se sine gjennomsnittlige poeng (localStorage)
+Input fra bruker: Klikk på svar
+Krav: Variabler, løkker, arrays, localStorage
+
+let questions = [
+  {q: "Hva er hovedstaden?", options: [...], correct: 1},
+  ...
+];
+let score = 0;
+
+
+🎯 Prosjekt 3: Attraksjons-filter & favoritter
+Brukere søker/filtrer attraksjoner (fjord, geotermisk, fjell)
+Kan markere som "favoritter"
+Lagrer favoritter i localStorage
+Viser statistikk: "Du har X favoritter"
+Input fra bruker: Søkeboks, checkbox
+Krav: Variabler, løkker, arrays, filter(), localStorage
+
+let attractions = [...];
+let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+function filterByCategory(category) {
+  return attractions.filter(a => a.category === category);
+}
+
+
+✅ Brukerinput (forms, buttons, søk)
+✅ Arrays og løkker
+✅ localStorage for datalagringsæring
+✅ Responsiv design
+✅ Kommentarer i koden
+✅ KISS-prinsippet (enkelt, ryddig)
