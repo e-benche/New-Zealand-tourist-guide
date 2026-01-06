@@ -37,27 +37,52 @@
         <!-- Prosjekt: Reiseplanlegger -->
         <section id="travel-planner" class="project">
             <h2>Reiseplanlegger (interaktiv)</h2>
-            <form id="plannerForm" aria-label="Reiseplanlegger">
+            <div class="planner-card">
+              <form id="plannerForm" aria-label="Reiseplanlegger">
                 <label for="destination">Destinasjon</label>
-                <input id="destination" name="destination" required aria-required="true">
-                <label for="days">Antall dager</label>
-                <input id="days" name="days" type="number" min="1" value="3">
-                <label for="budget">Budsjett (NOK)</label>
-                <input id="budget" name="budget" type="number" min="0" value="1000">
-                <button class="btn" type="submit">Lag plan</button>
-            </form>
+                <input id="destination" name="destination" required aria-required="true" placeholder="Skriv destinasjon">
+                <p id="plannerError" class="input-error" aria-live="assertive"></p>
+
+                <div class="field-row">
+                  <label for="days">Antall dager</label>
+                  <input id="days" name="days" type="number" min="1" value="3">
+
+                  <label for="budget">Budsjett (NOK)</label>
+                  <input id="budget" name="budget" type="number" min="0" value="1000">
+                </div>
+
+                <div class="form-actions">
+                  <button class="btn" type="submit">Lag plan</button>
+                  <button class="btn secondary" type="button" id="clearPlans">Tøm planer</button>
+                </div>
+              </form>
+
+              <div id="plannerSuggestions" class="suggestions" aria-live="polite"></div>
+            </div>
+
             <h3>Lagre planer</h3>
-            <ul id="plansList" aria-live="polite"></ul>
+            <ul id="plansList" class="plans-list" aria-live="polite"></ul>
         </section>
 
         <!-- Prosjekt: Quiz-spill -->
         <section id="quiz" class="project">
             <h2>Quiz: Test dine NZ-kunnskaper</h2>
-            <div id="quizContainer">
-                <p id="question"></p>
-                <div id="answers" role="list"></div>
-                <p id="quizScore">Poeng: 0</p>
+            <div id="quizCard" class="quiz-card">
+              <div class="quiz-header">
+                <div id="quizProgress" class="progress"><div class="progress-bar" style="width:0%"></div></div>
+                <div id="quizMeta" class="meta"><span id="quizScore">Poeng: 0</span> <span id="quizTimer">Tid: 15s</span></div>
+              </div>
+
+              <div id="quizContainer" class="quiz-body">
+                <p id="question" class="question"></p>
+                <div id="answers" role="list" class="answers"></div>
+              </div>
+
+              <div class="quiz-footer">
                 <button id="nextQuestion" class="btn secondary">Neste</button>
+              </div>
+
+              <div id="quizResult" class="quiz-result" hidden aria-live="polite"></div>
             </div>
         </section>
 

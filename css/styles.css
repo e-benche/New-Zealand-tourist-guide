@@ -224,4 +224,30 @@ a:focus, button:focus, input:focus, textarea:focus {
             margin-top: 40px;
         }
 
+        /* Inline error styling for planner */
+        .input-error { color: #b00020; margin-top: 0.5rem; font-size: 0.9rem; display: none; }
+        .input-error.visible { display: block; }
+
+        /* Planner UI */
+        .planner-card { background: linear-gradient(180deg,#ffffff,#fbfdff); padding:1rem; border-radius:8px; border:1px solid #e6eef6; box-shadow:0 2px 6px #0001; }
+        .field-row { display:flex; gap:0.75rem; align-items:center; margin-top:0.5rem; }
+        .field-row label { margin-right:0.25rem; min-width:90px }
+        .form-actions { margin-top:0.75rem; display:flex; gap:0.5rem; }
+        .plans-list { list-style:none; padding:0; margin:0.5rem 0 0 0; }
+        .plans-list .plan-item { padding:0.5rem; border:1px solid #e5e7eb; border-radius:6px; margin-bottom:0.5rem; display:flex; justify-content:space-between; align-items:center; }
+        .suggestions { margin-top:0.75rem; color:#065f46; background:#ecfdf5; border-radius:6px; padding:0.5rem; }
+
+        /* Quiz UI */
+        .quiz-card { background: linear-gradient(180deg,#fff,#f8fbff); padding:1rem; border-radius:8px; border:1px solid #e6eef6; box-shadow:0 2px 6px #0001; }
+        .quiz-header { display:flex; justify-content:space-between; align-items:center; gap:0.5rem; margin-bottom:0.5rem; }
+        .progress { flex:1; height:8px; background:#e6eef6; border-radius:999px; overflow:hidden; margin-right:0.5rem; }
+        .progress-bar { height:100%; background:var(--accent); width:0%; transition:width .3s; }
+        .meta { font-size:0.9rem; color:var(--muted); }
+        .question { font-weight:600; margin:1rem 0; font-size:1.1rem; }
+        .answers { display:grid; gap:0.5rem; grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); }
+        .quiz-btn { padding:0.6rem; border-radius:6px; border:1px solid #d1e4ff; background:#fff; cursor:pointer; text-align:left; }
+        .quiz-btn.correct { background:#16a34a; color:#fff; border-color:#16a34a; }
+        .quiz-btn.wrong { background:#dc2626; color:#fff; border-color:#dc2626; }
+        .quiz-result { margin-top:0.75rem; padding:0.75rem; background:#fff7ed; border-radius:6px; border:1px solid #ffedd5; color:#92400e; }
+
 

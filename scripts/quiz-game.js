@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const answersEl = document.getElementById('answers');
   const scoreEl = document.getElementById('quizScore');
   const nextBtn = document.getElementById('nextQuestion');
+  const progressBar = document.querySelector('.progress-bar');
+  const timerEl = document.getElementById('quizTimer');
+  const resultEl = document.getElementById('quizResult');
 
   const HIGH_SCORE_KEY = 'nz_quiz_high_score';
 
@@ -36,7 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateScoreDisplay() {
     const high = loadHighScore();
-    scoreEl.textContent = `Poeng: ${score} | Beste: ${high} | Tid: ${timeLeft}s`;
+    if (scoreEl) scoreEl.textContent = `Poeng: ${score} | Beste: ${high}`;
+    if (timerEl) timerEl.textContent = `Tid: ${timeLeft}s`;
+    if (progressBar) progressBar.style.width = `${Math.round((current / questions.length) * 100)}%`;
   }
 
   function showQuestion() {
@@ -107,14 +112,21 @@ document.addEventListener('DOMContentLoaded', () => {
     clearInterval(timerInterval);
     timerInterval = null;
 
-    questionEl.textContent = 'Resultat';
-    answersEl.innerHTML = `<p>Du fikk ${score} av ${questions.length} poeng.</p>`;
+    // Vis resultat i result-element
+    if (resultEl) {
+      resultEl.hidden = false;
+      resultEl.innerHTML = `<p>Du fikk ${score} av ${questions.length} poeng.</p>`;
+    } else {
+      questionEl.textContent = 'Resultat';
+      answersEl.innerHTML = `<p>Du fikk ${score} av ${questions.length} poeng.</p>`;
+    }
 
     // Oppdater best-score hvis aktuelt
     const best = loadHighScore();
     if (score > best) {
       saveHighScore(score);
-      answersEl.innerHTML += `<p>Ny beste score! 🎉</p>`;
+      if (resultEl) resultEl.innerHTML += `<p>Ny beste score! 🎉</p>`;
+      else answersEl.innerHTML += `<p>Ny beste score! 🎉</p>`;
     }
 
     nextBtn.textContent = 'Prøv igjen';
@@ -129,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     current = 0;
     score = 0;
+    if (resultEl) resultEl.hidden = true;
     updateScoreDisplay();
     showQuestion();
   }
