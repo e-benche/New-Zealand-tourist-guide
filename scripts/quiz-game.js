@@ -12,11 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let current = 0;
   let score = 0;
+  let started = false;
 
   const questionEl = document.getElementById('question');
   const answersEl = document.getElementById('answers');
   const scoreEl = document.getElementById('quizScore');
   const nextBtn = document.getElementById('nextQuestion');
+  const startBtn = document.getElementById('startQuiz');
   const progressBar = document.querySelector('.progress-bar');
   const timerEl = document.getElementById('quizTimer');
   const resultEl = document.getElementById('quizResult');
@@ -50,11 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     answersEl.innerHTML = '';
 
-    q.answers.forEach((a, i) => {
+    const shuffled = [...q.answers].sort(() => Math.random() - 0.5);
+    shuffled.forEach((a, i) => {
       const btn = document.createElement('button');
       btn.className = 'quiz-btn btn';
       btn.textContent = a;
-      btn.dataset.index = i;
+      btn.dataset.index = q.answers.indexOf(a);
       btn.type = 'button';
       btn.addEventListener('click', selectAnswer);
       btn.setAttribute('aria-pressed', 'false');
@@ -65,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.textContent = 'Neste';
     nextBtn.disabled = true;
 
-    // Start timer for spørsmålet
-    startTimer();
+    // Start timer for spørsmålet (bare hvis quizen er startet)
+    if (started) startTimer();
   }
 
   function selectAnswer(e) {
@@ -162,6 +165,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Start-knapp: initierer quizen og starter tiden
+  if (startBtn) {
+    startBtn.addEventListener('click', () => {
+      started = true;
+      startBtn.hidden = true;
+      restartQuiz();
+    });
+  }
+
   // Timer-funksjoner
   function startTimer() {
     clearInterval(timerInterval);
@@ -204,7 +216,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1500);
   }
 
-  // Initialisering
+  // Initialisering — vis intro og vent på Start
   updateScoreDisplay();
-  showQuestion();
+  questionEl.textContent = 'Trykk "Start quiz" for å begynne.';
+  answersEl.innerHTML = '';
+  nextBtn.disabled = true;
+  if (startBtn) startBtn.hidden = false;
+  if (resultEl) resultEl.hidden = true;
+  if (progressBar) progressBar.style.width = '0%';
 });

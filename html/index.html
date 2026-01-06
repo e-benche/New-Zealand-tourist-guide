@@ -23,6 +23,9 @@
     </header>
     <nav role="navigation" aria-label="Main navigation">
         <a href="#information-about-new-zealand">Information about New Zealand</a>
+        <a href="#travel-planner">Travel Planner</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#favorites">Favorites</a>
         <a href="#attractions">Attractions</a>
         <a href="#activities">Activities</a>
         <a href="#tips">Local Tips</a>
@@ -36,37 +39,37 @@
         </section>
         <!-- Prosjekt: Reiseplanlegger -->
         <section id="travel-planner" class="project">
-            <h2>Reiseplanlegger (interaktiv)</h2>
+            <h2>Travel planner</h2>
             <div class="planner-card">
               <form id="plannerForm" aria-label="Reiseplanlegger">
-                <label for="destination">Destinasjon</label>
+                <label for="destination">Destination</label>
                 <input id="destination" name="destination" required aria-required="true" placeholder="Skriv destinasjon">
                 <p id="plannerError" class="input-error" aria-live="assertive"></p>
 
                 <div class="field-row">
-                  <label for="days">Antall dager</label>
+                  <label for="days">Days</label>
                   <input id="days" name="days" type="number" min="1" value="3">
 
-                  <label for="budget">Budsjett (NOK)</label>
+                  <label for="budget">Budget (NOK)</label>
                   <input id="budget" name="budget" type="number" min="0" value="1000">
                 </div>
 
                 <div class="form-actions">
-                  <button class="btn" type="submit">Lag plan</button>
-                  <button class="btn secondary" type="button" id="clearPlans">Tøm planer</button>
+                  <button class="btn" type="submit">Make plan</button>
+                  <button class="btn secondary" type="button" id="clearPlans">Empty</button>
                 </div>
               </form>
 
               <div id="plannerSuggestions" class="suggestions" aria-live="polite"></div>
             </div>
 
-            <h3>Lagre planer</h3>
+            <h3>Save plans</h3>
             <ul id="plansList" class="plans-list" aria-live="polite"></ul>
         </section>
 
         <!-- Prosjekt: Quiz-spill -->
         <section id="quiz" class="project">
-            <h2>Quiz: Test dine NZ-kunnskaper</h2>
+            <h2>Quiz: Test your NZ knowledge</h2>
             <div id="quizCard" class="quiz-card">
               <div class="quiz-header">
                 <div id="quizProgress" class="progress"><div class="progress-bar" style="width:0%"></div></div>
@@ -79,7 +82,8 @@
               </div>
 
               <div class="quiz-footer">
-                <button id="nextQuestion" class="btn secondary">Neste</button>
+                <button id="startQuiz" class="btn" type="button">Start quiz</button>
+                <button id="nextQuestion" class="btn secondary" type="button" disabled>Neste</button>
               </div>
 
               <div id="quizResult" class="quiz-result" hidden aria-live="polite"></div>
@@ -88,8 +92,8 @@
 
         <!-- Prosjekt: Favoritter (vises fra Galleri eller her) -->
         <section id="favorites" class="project">
-            <h2>Dine favoritter</h2>
-            <p>Legg til favoritter i Galleri-siden. Favoritter vises her.</p>
+            <h2>Your favorites</h2>
+            <p>Add favorites in the Gallery section. Favorites will appear here.</p>
             <ul id="favoritesList" aria-live="polite"></ul>
         </section>
         <section id="attractions">
