@@ -12,42 +12,39 @@ nav { display: block; }
 /*Setter faste størrelser for bildene i galleriet på større skjermer*/
 }
 
-body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            background: #f4f8fb;
-            color: #222;
-:root{
-    --bg: #ffffff;
+:root {
+    --bg: #f4f8fb;
     --text: #111827;
     --accent: #1e90ff;
     --muted: #6b7280;
     --success: #16a34a;
+    --card-bg: #ffffff;
 }
 
-body{
+body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
     padding: 0;
     background: var(--bg);
     color: var(--text);
-}
+    transition: background-color .25s ease, color .25s ease;
+} 
 
-/* Tema-klasser */
-.theme-dark{
+/* Theme overrides */
+.theme-dark {
     --bg: #0b1220;
     --text: #e6eef8;
     --accent: #60a5fa;
+    --card-bg: #071025;
 }
-.theme-light{
+
+.theme-light {
     --bg: #ffffff;
     --text: #111827;
+    --card-bg: #ffffff;
 }
-/*Endrer fonten til Segoe UI, hvis den ikke er tilgjengelig, blir det til Arial, og hvis ikke den går heller, brukes sand-serif*/
-/*Legger til margin 0 for å fjerne standard margin rundt body*/
-/*Setter bakgrunnsfargen til en lys blåfarge*/
-/*Setter tekstfargen til en mørk grå for bedre lesbarhet*/
-    }
+
+/* End of theme variables */
         
         header {
             background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
@@ -94,6 +91,8 @@ body{
             margin: 0 25px;
             font-weight: bold;
             font-size: 1.2em;
+        }
+
 /* Fokus for tilgjengelighet */
 a:focus, button:focus, input:focus, textarea:focus {
     outline: 3px solid #ffbf47;
@@ -102,7 +101,6 @@ a:focus, button:focus, input:focus, textarea:focus {
 /*Setter tekstfargen til hvit for kontrast mot den blå bakgrunnen*/
 /*Fjerner understreking fra lenkene*/
 /*Legger til horisontal margin for å gi plass mellom lenkene*/
-        }
         
         nav a:hover {
             text-decoration: underline;
@@ -114,7 +112,7 @@ a:focus, button:focus, input:focus, textarea:focus {
         main {
             max-width: 900px;
             margin: 40px auto;
-            background: #fff;
+            background: var(--card-bg);
             border-radius: 8px;
             box-shadow: 0 2px 8px #0001;
             padding: 30px;
@@ -229,7 +227,7 @@ a:focus, button:focus, input:focus, textarea:focus {
         .input-error.visible { display: block; }
 
         /* Planner UI */
-        .planner-card { background: linear-gradient(180deg,#ffffff,#fbfdff); padding:1rem; border-radius:8px; border:1px solid #e6eef6; box-shadow:0 2px 6px #0001; }
+        .planner-card { background: var(--card-bg); padding:1rem; border-radius:8px; border:1px solid #e6eef6; box-shadow:0 2px 6px #0001; transition: background-color .25s ease; }
         .field-row { display:flex; gap:0.75rem; align-items:center; margin-top:0.5rem; }
         .field-row label { margin-right:0.25rem; min-width:90px }
         .form-actions { margin-top:0.75rem; display:flex; gap:0.5rem; }
@@ -238,7 +236,7 @@ a:focus, button:focus, input:focus, textarea:focus {
         .suggestions { margin-top:0.75rem; color:#065f46; background:#ecfdf5; border-radius:6px; padding:0.5rem; }
 
         /* Quiz UI */
-        .quiz-card { background: linear-gradient(180deg,#fff,#f8fbff); padding:1rem; border-radius:8px; border:1px solid #e6eef6; box-shadow:0 2px 6px #0001; }
+        .quiz-card { background: var(--card-bg); padding:1rem; border-radius:8px; border:1px solid #e6eef6; box-shadow:0 2px 6px #0001; transition: background-color .25s ease; }
         .quiz-header { display:flex; justify-content:space-between; align-items:center; gap:0.5rem; margin-bottom:0.5rem; }
         .progress { flex:1; height:8px; background:#e6eef6; border-radius:999px; overflow:hidden; margin-right:0.5rem; }
         .progress-bar { height:100%; background:var(--accent); width:0%; transition:width .3s; }

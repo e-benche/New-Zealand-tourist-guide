@@ -8,11 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyTheme(theme) {
     document.body.classList.remove('theme-light','theme-dark');
     document.body.classList.add(`theme-${theme}`);
-    if (toggle) toggle.textContent = theme === 'dark' ? 'Lys modus' : 'Mørk modus';
+    if (toggle) {
+      toggle.textContent = theme === 'dark' ? 'Lys modus' : 'Mørk modus';
+      toggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+    }
   }
 
   function loadTheme() {
-    return localStorage.getItem(storageKey) || 'light';
+    const stored = localStorage.getItem(storageKey);
+    if (stored) return stored;
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
+    return 'light';
   }
 
   if (toggle) {
