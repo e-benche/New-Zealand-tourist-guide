@@ -44,6 +44,22 @@ body {
     --card-bg: #ffffff;
 }
 
+/* CSS for dark mode button */
+#themeToggle {
+    background: var(--accent);
+    border: none;
+    color: var(--card-bg);
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#themeToggle:hover {
+    background: var(--success);
+}
+
 /* End of theme variables */
         
         header {
