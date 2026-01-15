@@ -1,5 +1,3 @@
-// Enkel multiple-choice quiz for "Quiz: Test dine NZ-kunnskaper"
-// Funksjoner: vise spørsmål, velge svar, oppdatere poeng, vise resultat, lagre beste score
 
 document.addEventListener('DOMContentLoaded', () => {
   const questions = [
