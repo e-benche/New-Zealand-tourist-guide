@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.remove('theme-light','theme-dark');
     document.body.classList.add(`theme-${theme}`);
     if (toggle) {
-      toggle.textContent = theme === 'dark' ? 'Lys modus' : 'Mørk modus';
+      toggle.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
       toggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
     }
   }
