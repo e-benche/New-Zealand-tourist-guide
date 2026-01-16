@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { question: 'Hva kalles New Zealands urbefolkning?', answers: ['Aboriginer', 'Māori', 'Inuit', 'Samoanere'], correct: 1 },
     { question: 'Hvilket land ligger nærmest New Zealand?', answers: ['Australia', 'Fiji', 'Chile', 'Japan'], correct: 0 },
     { question: 'Hva heter den høyeste fjelltoppen i New Zealand?', answers: ['Mount Cook (Aoraki)', 'Mount Taranaki', 'Mt Ruapehu', 'Mt Aspiring'], correct: 0 },
-    { question: 'Hvilken kjent fjord ligger i Sørøya?', answers: ['Milford Sound', 'Doubtful Sound', 'Doubtless Sound', 'Queenstown Sound'], correct: 0 }
+    { question: 'Hvilken kjent fjord ligger i Sørøya?', answers: ['Milford Sound', 'Doubtful Sound', 'Kingstown Sound', 'Queenstown Sound'], correct: 0 }
   ];
 
   let current = 0;
