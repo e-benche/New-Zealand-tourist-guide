@@ -264,4 +264,65 @@ a:focus, button:focus, input:focus, textarea:focus {
         .quiz-btn.wrong { background:#dc2626; color:#fff; border-color:#dc2626; }
         .quiz-result { margin-top:0.75rem; padding:0.75rem; background:#fff7ed; border-radius:6px; border:1px solid #ffedd5; color:#92400e; }
 
+        /* Fullskjerms video-overgang (quiz lav score) */
+        .video-overlay {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            display: grid;
+            place-items: center;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 600ms ease, visibility 600ms ease;
+            z-index: 5000;
+        }
+
+        .video-overlay.is-active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .video-overlay__video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        .video-overlay__iframe {
+            width: 100vw;
+            height: 100vh;
+            border: 0;
+        }
+
+        .video-overlay__skip {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+        }
+
+        .video-overlay__sound {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+        }
+
+        .video-overlay__message {
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            color: #fff;
+            background: #000a;
+            padding: 10px 12px;
+            border-radius: 8px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .video-overlay { transition: none; }
+        }
+
 

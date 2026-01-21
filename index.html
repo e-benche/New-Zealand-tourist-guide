@@ -15,12 +15,44 @@
     <script src="scripts/theme.js"></script>
     <script src="scripts/favorites.js"></script>
     <script src="scripts/travel-planner.js"></script>
-    <script src="scripts/quiz-game.js"></script>
+    <script type="module" src="scripts/quiz-game.js"></script>
 
 <link rel="icon" href="https://media.posterlounge.com/img/products/640000/639569/639569_poster.jpg" type="image/x-icon">
 <!--Bildet som vises på fanen-->
 </head>
 <body>
+    <!-- Fullskjerms video-overgang ved lav quiz-score -->
+    <div
+        id="lowScoreVideoOverlay"
+        class="video-overlay"
+        data-video-src="https://www.youtube.com/watch?v=8KxkzngOGJY"
+        data-perfect-video-src="https://www.youtube.com/watch?v=Qu7KFMn54Bk&list=PLq2sN4DR_Nc5QzGN9HW23abllenE1VCbd&index=1"
+        aria-hidden="true"
+    >
+        <video
+            id="lowScoreVideo"
+            class="video-overlay__video"
+            preload="auto"
+            playsinline
+            muted
+            hidden
+        ></video>
+
+        <iframe
+            id="lowScoreVideoIframe"
+            class="video-overlay__iframe"
+            title="Low score video"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen
+            hidden
+        ></iframe>
+        <button id="lowScoreVideoSound" class="btn video-overlay__sound" type="button">Spill med lyd</button>
+        <button id="lowScoreVideoSkip" class="btn secondary video-overlay__skip" type="button">Hopp over</button>
+        <p id="lowScoreVideoMessage" class="video-overlay__message" hidden>
+            Video er ikke konfigurert. Legg en fil på <code>videos/low-score.mp4</code> eller endre <code>data-video-src</code> i HTML.
+        </p>
+
+    </div>
     <header>
         <h1>Tourist guide for New Zealand</h1>
     </header>
