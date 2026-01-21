@@ -1,4 +1,6 @@
 
+import { playClick, playCorrect, playWrong, playSound } from './sound.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   const questions = [
     { question: 'Hva er hovedstaden i New Zealand?', answers: ['Auckland', 'Wellington', 'Christchurch', 'Hamilton'], correct: 1 },
@@ -20,6 +22,173 @@ document.addEventListener('DOMContentLoaded', () => {
   const progressBar = document.querySelector('.progress-bar');
   const timerEl = document.getElementById('quizTimer');
   const resultEl = document.getElementById('quizResult');
+
+  // Fullskjerms video-overgang (lav score)
+  const lowScoreOverlay = document.getElementById('lowScoreVideoOverlay');
+  const lowScoreVideo = document.getElementById('lowScoreVideo');
+  const lowScoreIframe = document.getElementById('lowScoreVideoIframe');
+  const lowScoreSound = document.getElementById('lowScoreVideoSound');
+  const lowScoreSkip = document.getElementById('lowScoreVideoSkip');
+  const lowScoreMessage = document.getElementById('lowScoreVideoMessage');
+  let previousBodyOverflow = '';
+  let activeOverlaySrc = '';
+  let activeOverlayIsYouTube = false;
+
+  function getLowScoreVideoSrc() {
+    const fromOverlay = lowScoreOverlay?.dataset?.videoSrc;
+    if (fromOverlay) return fromOverlay;
+
+    const videoSourceEl = document.querySelector('#video video source');
+    const fromSection = videoSourceEl?.getAttribute('src');
+    return fromSection || '';
+  }
+
+  function getPerfectScoreVideoSrc() {
+    return lowScoreOverlay?.dataset?.perfectVideoSrc || '';
+  }
+
+  function toAutoplaySrc(src, { muted = true } = {}) {
+    if (!src) return '';
+
+    // YouTube
+    try {
+      const u = new URL(src, document.baseURI);
+      const host = u.hostname.replace(/^www\./, '');
+
+      let youtubeId = '';
+      if (host === 'youtube.com' || host === 'm.youtube.com') {
+        // https://www.youtube.com/watch?v=...
+        if (u.pathname === '/watch') youtubeId = u.searchParams.get('v') || '';
+        // https://www.youtube.com/embed/ID
+        if (u.pathname.startsWith('/embed/')) youtubeId = u.pathname.split('/embed/')[1] || '';
+      }
+      if (host === 'youtu.be') {
+        // https://youtu.be/ID
+        youtubeId = u.pathname.replace(/^\//, '');
+      }
+
+      if (youtubeId) {
+        const embed = new URL(`https://www.youtube-nocookie.com/embed/${youtubeId}`);
+        embed.searchParams.set('autoplay', '1');
+        embed.searchParams.set('mute', muted ? '1' : '0');
+        embed.searchParams.set('controls', '1');
+        embed.searchParams.set('rel', '0');
+        embed.searchParams.set('playsinline', '1');
+        return embed.href;
+      }
+
+      // Lokal/vanlig URL (mp4 osv)
+      return u.href;
+    } catch {
+      return src;
+    }
+  }
+
+  function hideLowScoreVideoTransition() {
+    if (!lowScoreOverlay) return;
+    if (lowScoreVideo) {
+      lowScoreVideo.pause();
+      lowScoreVideo.removeAttribute('src');
+      lowScoreVideo.load();
+      lowScoreVideo.hidden = true;
+    }
+    if (lowScoreIframe) {
+      lowScoreIframe.src = '';
+      lowScoreIframe.hidden = true;
+    }
+    lowScoreOverlay.classList.remove('is-active');
+    lowScoreOverlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = previousBodyOverflow;
+    if (lowScoreMessage) lowScoreMessage.hidden = true;
+  }
+
+  function showLowScoreVideoTransition(srcOverride = '') {
+    if (!lowScoreOverlay) return;
+
+    previousBodyOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    lowScoreOverlay.classList.add('is-active');
+    lowScoreOverlay.setAttribute('aria-hidden', 'false');
+
+    const src = srcOverride || getLowScoreVideoSrc();
+    if (!src) {
+      if (lowScoreMessage) lowScoreMessage.hidden = false;
+      return;
+    }
+
+    const autoplaySrc = toAutoplaySrc(src, { muted: true });
+    const isYouTube = /youtube\.com|youtu\.be|youtube-nocookie\.com/.test(autoplaySrc);
+    activeOverlaySrc = src;
+    activeOverlayIsYouTube = isYouTube;
+
+    // Bytt mellom iframe (YouTube) og video (lokal fil)
+    if (isYouTube && lowScoreIframe) {
+      if (lowScoreVideo) lowScoreVideo.hidden = true;
+      lowScoreIframe.hidden = false;
+      lowScoreIframe.src = autoplaySrc;
+      return;
+    }
+
+    if (!lowScoreVideo) {
+      if (lowScoreMessage) lowScoreMessage.hidden = false;
+      return;
+    }
+
+    if (lowScoreIframe) {
+      lowScoreIframe.src = '';
+      lowScoreIframe.hidden = true;
+    }
+
+    lowScoreVideo.hidden = false;
+    const resolvedSrc = new URL(autoplaySrc, document.baseURI).href;
+    if (lowScoreVideo.src !== resolvedSrc) lowScoreVideo.src = resolvedSrc;
+
+    lowScoreVideo.currentTime = 0;
+    lowScoreVideo.muted = true;
+
+    lowScoreVideo.play().catch(() => {
+      // Autoplay kan bli blokkert på noen enheter/nettlesere
+      lowScoreVideo.controls = true;
+      if (lowScoreMessage) lowScoreMessage.hidden = false;
+    });
+  }
+
+  if (lowScoreSkip) {
+    lowScoreSkip.addEventListener('click', hideLowScoreVideoTransition);
+  }
+  if (lowScoreSound) {
+    lowScoreSound.addEventListener('click', () => {
+      if (!lowScoreOverlay?.classList.contains('is-active')) return;
+
+      // YouTube: restart med lyd (uten mute) etter brukerklikk
+      if (activeOverlayIsYouTube && lowScoreIframe && activeOverlaySrc) {
+        lowScoreIframe.src = toAutoplaySrc(activeOverlaySrc, { muted: false });
+        return;
+      }
+
+      // Lokal video: unmute og spill videre
+      if (lowScoreVideo) {
+        lowScoreVideo.muted = false;
+        lowScoreVideo.volume = 1;
+        lowScoreVideo.controls = true;
+        lowScoreVideo.play().catch(() => {});
+      }
+    });
+  }
+  if (lowScoreOverlay) {
+    lowScoreOverlay.addEventListener('click', (e) => {
+      // Klikk utenfor selve videoen lukker
+      if (e.target === lowScoreOverlay) hideLowScoreVideoTransition();
+    });
+  }
+  if (lowScoreVideo) {
+    lowScoreVideo.addEventListener('ended', hideLowScoreVideoTransition);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') hideLowScoreVideoTransition();
+  });
 
   const HIGH_SCORE_KEY = 'nz_quiz_high_score';
 
@@ -71,6 +240,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function selectAnswer(e) {
+    playClick();
+
     const selected = e.currentTarget;
     const selectedIndex = Number(selected.dataset.index);
     const q = questions[current];
@@ -92,9 +263,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Oppdater score
+    // Oppdater score + lyd
     if (selectedIndex === q.correct) {
       score += 1;
+      playCorrect();
+    } else {
+      playWrong();
     }
 
     updateScoreDisplay();
@@ -130,6 +304,22 @@ document.addEventListener('DOMContentLoaded', () => {
       else answersEl.innerHTML += `<p>Ny beste score! 🎉</p>`;
     }
 
+    // Spill av en egen lyd hvis scoren er under 2
+    if (score < 2) {
+      // Filen må ligge i mappa "soundeffects/" (sound.js legger på riktig base-URL)
+      playSound('five-nights-at-freddys-full-scream-sound_2.mp3', { volume: 0.8 });
+
+      // Video-overgang ved lav score
+      showLowScoreVideoTransition();
+    }
+
+    if (score === 5) {
+      playSound('', { volume: 0.8 });
+
+      // Video-overgang ved perfect score
+      showLowScoreVideoTransition(getPerfectScoreVideoSrc());
+    }
+
     nextBtn.textContent = 'Prøv igjen';
     nextBtn.disabled = false;
     updateScoreDisplay();
@@ -139,6 +329,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Stopp eventuell timer
     clearInterval(timerInterval);
     timerInterval = null;
+
+    hideLowScoreVideoTransition();
 
     current = 0;
     score = 0;
@@ -191,6 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function handleTimeOut() {
+    playWrong();
     const q = questions[current];
 
     // Deaktiver knapper og marker riktig svar
