@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeOverlaySrc = '';
   let activeOverlayIsYouTube = false;
 
+  // AI GENERERT FOR GØY
   function getLowScoreVideoSrc() {
     const fromOverlay = lowScoreOverlay?.dataset?.videoSrc;
     if (fromOverlay) return fromOverlay;
@@ -189,6 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') hideLowScoreVideoTransition();
   });
+// AI GENERERT FOR GØY
 
   const HIGH_SCORE_KEY = 'nz_quiz_high_score';
 
@@ -239,6 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (started) startTimer();
   }
 
+  // LYDER M. MODULES
   function selectAnswer(e) {
     playClick();
 
@@ -270,6 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       playWrong();
     }
+// LYDER M. MODULES
 
     updateScoreDisplay();
 
